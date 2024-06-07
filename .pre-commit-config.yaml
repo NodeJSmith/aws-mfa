@@ -1,0 +1,37 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-ast
+      - id: trailing-whitespace
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args:
+          - --unsafe
+      - id: debug-statements
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: detect-private-key
+
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
+        args:
+          - -r
+          - --in-place
+          - --remove-all-unused-imports
+          - --remove-duplicate-keys
+          - --expand-star-imports
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.3.7
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args:
+          - --fix
+      - id: ruff-format
