@@ -1,7 +1,6 @@
 import logging
 import sys
 from configparser import NoOptionError, RawConfigParser
-from pathlib import Path
 
 import pendulum
 from humanize import precisedelta
